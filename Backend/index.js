@@ -11,7 +11,7 @@ const PORT = 8080;
 app.use(bodyparser.json());
 app.use(
   cors({
-    origin: "*", // Allow all origins
+    origin: "https://mern-project-ui.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
   })
 );
