@@ -1,25 +1,24 @@
 const express = require('express');
-require('dotenv').config()
-require('./Modals/db')
+require('dotenv').config();
+require('./Modals/db'); // Ensure this connects to the database
 const bodyparser = require('body-parser');
 const cors = require('cors');
 const Authrouter = require('./Routes/AuthRouter');
+
 const app = express();
-const PORT = 8080;
+const PORT =  8080;
 
-
-app.use('/hi', (req, res) => {
-    res.send({message : 'Welcome Azmat!'});
-    console.log("Success from server");
-    
-});
-
-// Bodyparser middleware to parse JSON request bodies
+// Middleware
 app.use(bodyparser.json());
 app.use(cors());
 
-// User routes
-app.use('/auth',Authrouter);
+// Routes
+app.use('/hi', (req, res) => {
+    res.send({ message: 'Welcome Azmat!' });
+    console.log('Success from server');
+});
 
+app.use('/auth', Authrouter);
 
-app.listen(PORT, () => console.log('listening on port ' + PORT));
+// Start server
+app.listen(PORT, () => console.log('Server listening on port ' + PORT));
