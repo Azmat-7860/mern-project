@@ -8,7 +8,7 @@ const app = express();
 const PORT = 8080;
 
 
-app.get('/hi', (req, res) => {
+app.use('/hi', (req, res) => {
     res.send({message : 'Welcome Azmat!'});
     console.log("Success from server");
     
