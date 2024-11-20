@@ -24,7 +24,7 @@ const navigate = useNavigate();
       return toast.error("All fields are required");
     }
     try {
-      const api = "http://localhost:8080/auth/login";
+      const api = "https://mern-project-backend-azmat-alli-khans-projects.vercel.app/auth/login";
       const response = await fetch(api, {
         method: "POST",
         headers: {

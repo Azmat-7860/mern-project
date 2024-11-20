@@ -28,7 +28,7 @@ const Signup = () => {
     }
     try {
       console.log("signup");
-      const api = "http://localhost:8080/auth/signup";
+      const api = "https://mern-project-backend-azmat-alli-khans-projects.vercel.app/auth/signup";
       const response = await fetch(api, {
         method: "POST",
         headers: {
