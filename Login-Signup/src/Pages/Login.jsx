@@ -24,7 +24,9 @@ const navigate = useNavigate();
       return toast.error("All fields are required");
     }
     try {
+      console.log("login");
       const api = "https://mern-project-api-azmat-alli-khans-projects.vercel.app/auth/login";
+
       const response = await fetch(api, {
         method: "POST",
         headers: {
