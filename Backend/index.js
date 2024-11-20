@@ -9,12 +9,7 @@ const PORT = 8080;
 
 // Bodyparser middleware to parse JSON request bodies
 app.use(bodyparser.json());
-app.use(
-  cors({
-    origin: "*", // Allow all origins
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-  })
-);
+app.use(cors());
 
 app.use("/hi", (req, res) => {
   res.send({ message: "Welcome Azmat!" });
