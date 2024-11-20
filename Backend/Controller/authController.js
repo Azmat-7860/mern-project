@@ -47,17 +47,17 @@ const login = async (req, res) => {
         .json({ message: "Invalid Password", success: false });
     }
 
-    const jwtToken = await jwt.sign(
-      { email: user.email, _id: user._id },
-      process.env.JWT_SECRET_KEY,
-      { expiresIn: "24h" }
-    );
+    // const jwtToken = await jwt.sign(
+    //   { email: user.email, _id: user._id },
+    //   process.env.JWT_SECRET_KEY,
+    //   { expiresIn: "24h" }
+    // );
     res
       .status(200)
       .json({
         message: "Logged in successfully",
         success: true,
-        jwtToken: jwtToken,
+        jwtToken: "jwtToken",
         email,
         name: user.username,
       });
