@@ -62,7 +62,7 @@ const login = async (req, res) => {
         name: user.username,
       });
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error", error });
+    res.status(500).json({ message: "Internal Server Error"+ error });
   }
 };
 module.exports = {
