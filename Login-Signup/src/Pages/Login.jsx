@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import { FaLock, FaLockOpen } from "react-icons/fa";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -57,7 +58,10 @@ const navigate = useNavigate();
       toast.error(error)
     }
   };
-
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <div class="container">
       <div class="wrapper">
@@ -73,14 +77,18 @@ const navigate = useNavigate();
             />
             <i class="bx bxs-user"></i>
           </div>
-          <div class="input-box">
+          <div className="input-box">
             <input
               onChange={handleChange}
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               name="password"
             />
-            <i class="bx bxs-lock-alt"></i>
+            {showPassword ? (
+              < FaLockOpen className="eye-icon" onClick={togglePasswordVisibility} />
+            ) : (
+              <FaLock className="eye-icon" onClick={togglePasswordVisibility} />
+            )}
           </div>
 
           <button type="submit" class="btn">

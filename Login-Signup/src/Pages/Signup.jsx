@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import { FaLock, FaLockOpen } from "react-icons/fa";
 
 const Signup = () => {
   let [signupInfo, setSignupInfo] = useState({
@@ -52,6 +53,10 @@ const Signup = () => {
       toast.error("Failed to signup");
     }
   };
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <div class="container">
       <div class="wrapper">
@@ -65,7 +70,7 @@ const Signup = () => {
               name="username"
               autoFocus
             />
-            <i class="bx bxs-user"></i>
+         
           </div>
           <div class="input-box">
             <input
@@ -74,16 +79,20 @@ const Signup = () => {
               placeholder="Email"
               name="email"
             />
-            <i class="bx bxs-user"></i>
+          
           </div>
-          <div class="input-box">
+          <div className="input-box">
             <input
               onChange={handleChange}
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               name="password"
             />
-            <i class="bx bxs-lock-alt"></i>
+            {showPassword ? (
+              < FaLockOpen className="eye-icon" onClick={togglePasswordVisibility} />
+            ) : (
+              <FaLock className="eye-icon" onClick={togglePasswordVisibility} />
+            )}
           </div>
 
           <button type="submit" class="btn">
@@ -92,7 +101,7 @@ const Signup = () => {
 
           <div class="register-link">
             <p>
-              Have an account? <a href="/login">Login</a>
+              Have an account ? <a href="/login">Login</a>
             </p>
           </div>
         </form>
